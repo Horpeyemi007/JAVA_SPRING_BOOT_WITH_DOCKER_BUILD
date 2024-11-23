@@ -7,4 +7,3 @@ COPY . /home
 WORKDIR /home
 
 ENTRYPOINT [ "java","-jar","banking-v1.jar" ]
-
