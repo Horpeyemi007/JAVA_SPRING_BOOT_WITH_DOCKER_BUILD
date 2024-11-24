@@ -5,5 +5,5 @@ RUN cd banking/application-files && mvn -B package -DskipTests
 FROM openjdk:21-ea-33-oraclelinux7
 RUN mkdir -p /home
 WORKDIR /home
-COPY --from=APP_BUILD_IMAGE banking/application-files/targets/banking-v1.war /home
+COPY --from=APP_BUILD_IMAGE banking/application-files/targets/banking-v1.jar /home
 ENTRYPOINT [ "java","-jar","banking-v1.jar" ]
