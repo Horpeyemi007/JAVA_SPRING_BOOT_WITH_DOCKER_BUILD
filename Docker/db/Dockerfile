@@ -1,0 +1,6 @@
+FROM mysql:8.0.39
+
+ENV MYSQL_ROOT_PASSWORD=admin@root
+ENV MYSQL_DATABASE='userdb'
+ENV MYSQL_USER='admin'
+ENV MYSQL_PASSWORD='adminuser'
