@@ -1,10 +1,10 @@
 version: "3.8"
 services:
-  appdbsvc:
+  dbserver-svc:
     build:
       context: ./docker-file/db
-    image: opeseen/bankappdb
-    container_name: appdb
+    image: opeseen/dbimagebk
+    container_name: dbserver
     ports: 
       - "3306:3306"
     environment:
@@ -12,16 +12,27 @@ services:
     volumes:
       - dbData:/var/lib/mysql
 
-  appsvc:
+  appserver-svc:
     build:
       context: ./docker-file/app
-    image: opeseen/bankapp
-    container_name: app
+    image: opeseen/appimagebk
+    container_name: appserver
     ports: 
       - "8080:8080"
     depends_on:
-      - appdbsvc
-    command: bash -c "./wait-for-it.sh --timeout=60 --strict appdb:3306 && java -jar banking-v1.jar"
+      - dbserver-svc
+    command: bash -c "./wait-for-it.sh --timeout=60 --strict dbserver:3306 && java -jar banking-v1.jar"
+    restart: on-failure
+
+  webserver-svc:
+    build:
+      context: ./docker-file/web
+    image: opeseen/webimagebk
+    container_name: webserver
+    depends_on:
+      - appserver-svc
+    ports:
+      - "80:80"
     restart: on-failure
 
 volumes:
