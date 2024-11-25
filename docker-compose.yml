@@ -13,7 +13,7 @@ services:
 
   app:
     build:
-      context: ./dockerfile/app
+      context: ./docker-file/app
     container_name: myapp
     ports: 
       - "8080:8080"
