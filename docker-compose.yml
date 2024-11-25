@@ -3,21 +3,21 @@ services:
   dbserver-svc:
     build:
       context: ./docker-file/db
-    image: opeseen/dbimagebk
+    image: opeseen/bkdbimage
     container_name: dbserver
-    ports: 
+    ports:
       - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=admin@root
     volumes:
-      - dbData:/var/lib/mysql
+      - dbData: /var/lib/mysql
 
   appserver-svc:
     build:
       context: ./docker-file/app
-    image: opeseen/appimagebk
+    image: opeseen/bkappimage
     container_name: appserver
-    ports: 
+    ports:
       - "8080:8080"
     depends_on:
       - dbserver-svc
@@ -27,7 +27,7 @@ services:
   webserver-svc:
     build:
       context: ./docker-file/web
-    image: opeseen/webimagebk
+    image: opeseen/bkwebimage
     container_name: webserver
     depends_on:
       - appserver-svc
