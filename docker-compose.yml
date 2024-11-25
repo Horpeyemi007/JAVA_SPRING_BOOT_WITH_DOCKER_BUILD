@@ -1,8 +1,9 @@
 version: "3.8"
 services:
-  appdb:
+  appdbsvc:
     build:
       context: ./docker-file/db
+    image: opeseen/bankappdb
     container_name: appdb
     ports: 
       - "3306:3306"
@@ -11,14 +12,16 @@ services:
     volumes:
       - dbData:/var/lib/mysql
 
-  app:
+  appsvc:
     build:
       context: ./docker-file/app
+    image: opeseen/bankapp
     container_name: app
     ports: 
       - "8080:8080"
     depends_on:
-      - appdb
+      - appdbsvc
+    command: bash -c "./wait-for-it.sh --timeout=60 --strict appdb:3306 && java -jar banking-v1.jar"
     restart: on-failure
 
 volumes:
