@@ -8,4 +8,3 @@ WORKDIR /home
 COPY --from=app_build_image banking/application-files/target/banking-v1.jar /home
 COPY wait-for-it.sh /home
 RUN chmod +x wait-for-it.sh
-# ENTRYPOINT [ "java","-jar","banking-v1.jar" ]
