@@ -14,7 +14,7 @@ services:
   app:
     build:
       context: ./docker-file/app
-    container_name: myapp
+    container_name: app
     ports: 
       - "8080:8080"
     depends_on:
