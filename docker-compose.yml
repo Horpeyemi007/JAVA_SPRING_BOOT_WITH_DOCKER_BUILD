@@ -10,7 +10,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=admin@root
     volumes:
-      - dbData: /var/lib/mysql
+      - dbData:/var/lib/mysql
 
   appserver-svc:
     build:
