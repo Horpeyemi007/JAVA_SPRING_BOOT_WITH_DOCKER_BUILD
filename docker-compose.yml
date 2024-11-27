@@ -1,14 +1,17 @@
 version: "3.8"
 services:
   dbserver-svc:
-    build:
-      context: ./docker-file/db
-    image: opeseen/bkdbimage
+    # build:
+      # context: ./docker-file/db
+    image: mysql:8.0.39
     container_name: dbserver
     ports:
       - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=admin@root
+      - MYSQL_DATABASE=userdb
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD='adminuser'
     volumes:
       - dbData:/var/lib/mysql
 
