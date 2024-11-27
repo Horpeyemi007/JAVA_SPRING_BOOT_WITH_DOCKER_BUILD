@@ -12,7 +12,7 @@ Building a spring boot java application with docker and docker compose
 CONTAINER ID   IMAGE                COMMAND                  CREATED         STATUS         PORTS                                                  NAMES
 abd589aa26cb   opeseen/bkwebimage   "/docker-entrypoint.…"   3 minutes ago   Up 4 seconds   0.0.0.0:80->80/tcp, :::80->80/tcp                      webserver
 b8db87cae719   opeseen/bkappimage   "bash -c './wait-for…"   3 minutes ago   Up 5 seconds   0.0.0.0:8080->8080/tcp, :::8080->8080/tcp              appserver
-853608dc9d07   mysql:8.0.39    "docker-entrypoint.s…"   3 minutes ago   Up 5 seconds   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp, 33060/tcp        dbserver
+853608dc9d07   mysql:8.0.39         "docker-entrypoint.s…"   3 minutes ago   Up 5 seconds   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp, 33060/tcp   dbserver
 ```
 
 5. Use the machine `ip address:80` to access the page from the web browser
