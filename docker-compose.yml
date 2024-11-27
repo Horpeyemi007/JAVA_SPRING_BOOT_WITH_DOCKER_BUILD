@@ -18,7 +18,7 @@ services:
   appserver-svc:
     build:
       context: ./docker-file/app
-    # image: opeseen/bkappimage
+    image: opeseen/bkappimage
     container_name: appserver
     ports:
       - "8080:8080"
@@ -30,7 +30,7 @@ services:
   webserver-svc:
     build:
       context: ./docker-file/web
-    # image: opeseen/bkwebimage
+    image: opeseen/bkwebimage
     container_name: webserver
     depends_on:
       - appserver-svc
