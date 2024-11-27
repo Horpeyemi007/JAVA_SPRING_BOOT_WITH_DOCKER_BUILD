@@ -1,8 +1,6 @@
 version: "3.8"
 services:
   dbserver-svc:
-    # build:
-      # context: ./docker-file/db
     image: mysql:8.0.39
     container_name: dbserver
     ports:
