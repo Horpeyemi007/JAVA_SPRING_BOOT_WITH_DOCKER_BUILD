@@ -7,8 +7,8 @@ services:
     container_name: dbserver
     ports:
       - "3306:3306"
-    # environment:
-      # - MYSQL_ROOT_PASSWORD=admin@root
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin@root
       # - MYSQL_DATABASE=userdb
       # - MYSQL_USER=admin
       # - MYSQL_PASSWORD=adminuser
