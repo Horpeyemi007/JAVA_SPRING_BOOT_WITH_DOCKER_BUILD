@@ -11,7 +11,7 @@ services:
       - MYSQL_ROOT_PASSWORD=admin@root
       - MYSQL_DATABASE=userdb
       - MYSQL_USER=admin
-      - MYSQL_PASSWORD='adminuser'
+      - MYSQL_PASSWORD=adminuser
     volumes:
       - dbData:/var/lib/mysql
 
